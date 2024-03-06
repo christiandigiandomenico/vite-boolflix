@@ -1,8 +1,18 @@
 <script>
 
+import {store} from '../store.js';
+
 export default {
 
-name: "AppNav"
+name: "AppNav",
+
+data() {
+    return {
+
+      store,
+      
+    }
+  },
 
 }
 
@@ -31,8 +41,8 @@ name: "AppNav"
         <div class="nav-right">
 
             <div id="search-bar">
-                <input type="search" name="saerchText" placeholder="Cerca">
-                <button class="btn">Cerca</button>
+                <input type="search" name="saerchText" placeholder="Cerca" v-model="this.store.searchMovie">
+                <button @click="$emit('search')" class="btn">Cerca</button>
             </div>
 
             <i class="fa-solid fa-bell"></i>
