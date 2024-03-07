@@ -40,7 +40,7 @@ export default {
 
     <ul>
 
-        <AppSeries v-for="currentSeries in store.tvSeries" :series="currentSeries"></AppSeries>
+        <AppCard v-for="currentSeries in store.tvSeries" :movie="currentSeries"></AppCard>
 
     </ul>   
 
