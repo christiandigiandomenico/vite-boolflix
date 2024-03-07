@@ -119,8 +119,6 @@ export default {
     display: flex;
     flex-direction: column;
 
-    border: 1px solid gray;
-    border-radius: 25px;
     padding: 20px;
 
     width: calc(100% / 5);

@@ -105,8 +105,6 @@ export default {
     display: flex;
     flex-direction: column;
 
-    border: 1px solid gray;
-    border-radius: 25px;
     padding: 20px;
 
     width: calc(100% / 5);
@@ -123,6 +121,11 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
         .card-original-title {
             margin-bottom: 20px;
