@@ -3,7 +3,6 @@
 import {store} from '../store.js';
 
 import AppCard from './AppCard.vue';
-import AppSeries from './AppSeries.vue';
 
 export default {
 
@@ -11,7 +10,6 @@ export default {
 
   components: {
     AppCard,
-    AppSeries,
   },
 
   data() {
