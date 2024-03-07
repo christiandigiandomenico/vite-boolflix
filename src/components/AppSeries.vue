@@ -136,13 +136,19 @@ export default {
         justify-content: center;
         align-items: center;
 
+        .star-vote{
+            i {
+                color: rgb(255, 196, 0);
+            }
+        }
+
         .card-original-title {
             margin-bottom: 20px;
         }
 
         img {
         width: 20px;
-        height: 20px;
+        height: 15px;
     }
 
     }
