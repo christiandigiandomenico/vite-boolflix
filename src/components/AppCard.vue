@@ -21,7 +21,6 @@ export default {
             for(let i = 0; i < vote; i++ ) {
                 arrayStars.pop();
                 arrayStars.unshift('fa-solid fa-star');
-                console.log(arrayStars)
             }
             return arrayStars;
         }
@@ -30,17 +29,77 @@ export default {
 </script>
 
 <template>
-    <li class="movie">
-        <img :src="getImageUrl(movie.poster_path)" :alt="movie.original_title">
-        <span class="card-title">{{ movie.title }}</span>
-        <span class="card-original-title">{{ movie.original_title }}</span>
-        <span class="card-language"><img :src="getFlagUrl(movie.original_language)"></span>
+    <!--<li class="movie">-->
+        <!--<img :src="getImageUrl(movie.poster_path)" :alt="movie.original_title">-->
+        <!--<span class="card-title">{{ movie.title }}</span>-->
+        <!--<span class="card-original-title">{{ movie.original_title }}</span>-->
+        <!--<span class="card-language"><img :src="getFlagUrl(movie.original_language)"></span>-->
         <!--<span class="card-vote">{{ movie.vote_average }}</span>-->
-        <div class="star-vote"><i v-for="star in starVote()" :class="star"></i></div>
+        <!--<div class="star-vote"><i v-for="star in starVote()" :class="star"></i></div>-->
+    <!--</li>-->
+
+    <li class="movie">
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img :src="getImageUrl(movie.poster_path)" :alt="movie.original_title">
+                </div>
+            <div class="flip-card-back">
+                <span class="card-title">{{ movie.title }}</span>
+                <span class="card-original-title">{{ movie.original_title }}</span>
+                <span class="card-language"><img :src="getFlagUrl(movie.original_language)"></span>
+                <span class="card-original-title">{{ movie.overview }}</span>
+                <!--<span class="card-vote">{{ movie.vote_average }}</span>-->
+                <div class="star-vote"><i v-for="star in starVote()" :class="star"></i></div>
+            </div>
+        </div>
+
+        </div>
     </li>
 </template>
 
 <style lang="scss">
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 500px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: gray;
+  color: white;
+  transform: rotateY(180deg);
+}
 
 .movie {
     display: flex;
@@ -54,6 +113,28 @@ export default {
     .star-vote {
         display: flex;
     }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .flip-card-back {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .card-original-title {
+            margin-bottom: 20px;
+        }
+
+        img {
+        width: 20px;
+        height: 20px;
+    }
+
+    }
+    
 }
 
 </style>

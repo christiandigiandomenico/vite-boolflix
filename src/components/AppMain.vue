@@ -28,13 +28,19 @@ export default {
 
 <div class="container">
 
+    <div class="movie-section">Film</div>
+
     <ul>
 
         <AppCard v-for="currentMovie in store.movies" :movie="currentMovie"></AppCard>
 
-        <p class="series-tv">Serie Tv</p><br>
+    </ul>
 
-        <br><AppSeries v-for="currentSeries in store.tvSeries" :series="currentSeries"></AppSeries>
+    <div class="series-section">Telefilm</div>
+
+    <ul>
+
+        <AppSeries v-for="currentSeries in store.tvSeries" :series="currentSeries"></AppSeries>
 
     </ul>   
 
@@ -45,6 +51,18 @@ export default {
 <style lang="scss">
 
 .container {
+    .movie-section {
+        font-size: 40px;
+        font-weight: bold;
+        border-bottom: 1px solid gray;
+        margin-bottom: 20px;
+    }
+    .series-section {
+        font-size: 40px;
+        font-weight: bold;
+        border-bottom: 1px solid gray;
+        margin-bottom: 20px;
+    }
     ul {
         display: flex;
         flex-wrap: wrap;
