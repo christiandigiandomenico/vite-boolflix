@@ -2,7 +2,8 @@
 
 import {store} from '../store.js';
 
-import AppCard from './AppCard.vue'
+import AppCard from './AppCard.vue';
+import AppSeries from './AppSeries.vue';
 
 export default {
 
@@ -10,6 +11,7 @@ export default {
 
   components: {
     AppCard,
+    AppSeries,
   },
 
   data() {
@@ -29,6 +31,10 @@ export default {
     <ul>
 
         <AppCard v-for="currentMovie in store.movies" :movie="currentMovie"></AppCard>
+
+        <p class="series-tv">Serie Tv</p><br>
+
+        <br><AppSeries v-for="currentSeries in store.tvSeries" :series="currentSeries"></AppSeries>
 
     </ul>   
 

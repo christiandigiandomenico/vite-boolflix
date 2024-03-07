@@ -33,7 +33,13 @@ searchMovies() {
       this.store.movies = res.data.results;
     });
 
-  console.log("Ricerca percepita")
+    axios.get('https://api.themoviedb.org/3/search/tv?api_key=417dd13ef013e66b61eb99f5ee9bd904&query=' + this.store.searchMovie)
+    .then(res2 => {
+      console.log(res2.data.results)
+
+      this.store.tvSeries = res2.data.results;
+    });
+
 },
 
 },
