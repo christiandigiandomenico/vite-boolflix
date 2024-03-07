@@ -81,8 +81,8 @@ export default {
                     <img :src="getImageUrl(movie.poster_path)" :alt="movie.original_title">
                 </div>
             <div class="flip-card-back">
-                <span class="card-title" v-if="movie.title == movie.original_title || movie.name == movie.original_name">{{ movie.title ? movie.title : movie.name}}</span>
-                <span class="card-original-title" v-else>{{ movie.original_title ? movie.original_title : movie.original_name }}</span>
+                <span class="card-title">{{ movie.title ? movie.title : movie.name}}</span>
+                <span class="card-original-title">{{ movie.original_title ? movie.original_title : movie.original_name }}</span>
                 <span class="card-language"><img :src="getFlagUrl(movie.original_language)"></span>
                 <span class="card-original-title">{{ movie.overview }}</span>
                 <!--<span class="card-vote">{{ movie.vote_average }}</span>-->

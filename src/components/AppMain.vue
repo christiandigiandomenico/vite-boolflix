@@ -26,7 +26,7 @@ export default {
 
 <div class="container">
 
-    <div class="movie-section">Film</div>
+    <div class="movie-section" v-if="store.movies.length!= 0">Film</div>
 
     <ul>
 
@@ -34,7 +34,7 @@ export default {
 
     </ul>
 
-    <div class="series-section">Telefilm</div>
+    <div class="series-section" v-if="store.tvSeries.length!= 0">Telefilm</div>
 
     <ul>
 
