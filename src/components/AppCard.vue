@@ -134,6 +134,7 @@ export default {
   background-color: gray;
   color: white;
   transform: rotateY(180deg);
+  overflow-y: auto;
 }
 
 .movie {
