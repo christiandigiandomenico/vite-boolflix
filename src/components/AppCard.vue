@@ -4,6 +4,7 @@ export default {
 
     props: {
         movie: Object,
+        cast: Array,
     },
 
     methods: {
@@ -58,7 +59,23 @@ export default {
                 arrayStars.unshift('fa-solid fa-star');
             }
             return arrayStars;
+        },
+
+        getCastNames() {
+            if(this.cast && this.cast.length) {
+                let castNames = '';
+                const maxMember = 5;
+                for (let i = 0; i < Math.min(this.cast.length, maxMember); i++) {
+                    castNames += this.cast[i].name;
+                    if (i < Math.min(this.cast.length, maxMember) - 1) {
+                        castNames += ', ';
+                    }
+                } return castNames;
+            } else {
+            return '';
         }
+        },
+
     },
 }
 </script>
@@ -87,6 +104,7 @@ export default {
                 <span class="card-original-title">{{ movie.overview }}</span>
                 <!--<span class="card-vote">{{ movie.vote_average }}</span>-->
                 <div class="star-vote"><i v-for="star in starVote()" :class="star"></i></div>
+                <div class="cast-members" v-if="cast && cast.length"><strong>Cast:</strong> {{ getCastNames() }}</div>
             </div>
         </div>
 
@@ -160,6 +178,7 @@ export default {
         align-items: center;
 
         .star-vote{
+            margin-bottom: 10px;
             i {
                 color: rgb(255, 196, 0);
             }

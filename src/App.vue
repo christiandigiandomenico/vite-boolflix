@@ -31,6 +31,12 @@ searchMovies() {
       console.log(res.data.results)
 
       this.store.movies = res.data.results;
+
+      this.store.movies.forEach(movie => {
+        axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=417dd13ef013e66b61eb99f5ee9bd904`).then(res => {
+          this.store.castMovies[movie.id] = res.data.cast
+        })
+      })
     });
 
     axios.get('https://api.themoviedb.org/3/search/tv?api_key=417dd13ef013e66b61eb99f5ee9bd904&query=' + this.store.searchMovie)
@@ -38,6 +44,12 @@ searchMovies() {
       console.log(res2.data.results)
 
       this.store.tvSeries = res2.data.results;
+
+      this.store.tvSeries.forEach(series => {
+        axios.get(`https://api.themoviedb.org/3/tv/${series.id}/credits?api_key=417dd13ef013e66b61eb99f5ee9bd904`).then(res => {
+          this.store.castSeries[series.id] = res.data.cast
+        })
+      })
     });
 
 },
