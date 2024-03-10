@@ -5,9 +5,22 @@ export default {
     props: {
         movie: Object,
         cast: Array,
+        genres: Array,
     },
 
     methods: {
+
+        getGenresName() {
+                if (this.movie.genre_ids && this.genres.length > 0) {
+                        const genreNames = this.movie.genre_ids.map(genreId => {
+                            const genre = this.genres.find(genre => genre.id === genreId);
+                            return genre ? genre.name : '';
+                        });
+                        return genreNames.join(', ');
+                    } else {
+                        return '';
+                    }
+            },
 
         getFlagUrl(language) {
 
@@ -105,6 +118,7 @@ export default {
                 <!--<span class="card-vote">{{ movie.vote_average }}</span>-->
                 <div class="star-vote"><i v-for="star in starVote()" :class="star"></i></div>
                 <div class="cast-members" v-if="cast && cast.length"><strong>Cast:</strong> {{ getCastNames() }}</div>
+                <div v-if="getGenresName()"><span>Generi: </span>{{ getGenresName() }}</div>
             </div>
         </div>
 

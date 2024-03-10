@@ -24,10 +24,24 @@ export default {
 
   methods: {
 
+    getGenres() {
+              axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=417dd13ef013e66b61eb99f5ee9bd904').then(res => {
+                this.store.filmGenres = res.data.genres;
+
+              });
+
+              axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=417dd13ef013e66b61eb99f5ee9bd904').then(res => {
+                this.store.tvSeriesGenres = res.data.genres;
+
+              });
+
+          },
+
 searchMovies() {
 
   axios.get('https://api.themoviedb.org/3/search/movie?api_key=417dd13ef013e66b61eb99f5ee9bd904&query=' + this.store.searchMovie)
     .then(res => {
+      this.getGenres()
       console.log(res.data.results)
 
       this.store.movies = res.data.results;

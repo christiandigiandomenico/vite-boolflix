@@ -30,7 +30,7 @@ export default {
 
     <ul>
 
-        <AppCard v-for="currentMovie in store.movies" :movie="currentMovie" :cast="store.castMovies[currentMovie.id]"></AppCard>
+        <AppCard v-for="currentMovie in store.movies" :movie="currentMovie" :cast="store.castMovies[currentMovie.id]" :genres="store.filmGenres"></AppCard>
 
     </ul>
 
@@ -38,7 +38,7 @@ export default {
 
     <ul>
 
-        <AppCard v-for="currentSeries in store.tvSeries" :movie="currentSeries" :cast="store.castSeries[currentSeries.id]"></AppCard>
+        <AppCard v-for="currentSeries in store.tvSeries" :movie="currentSeries" :cast="store.castSeries[currentSeries.id]" :genres="store.filmtvSeriesGenres"></AppCard>
 
     </ul>   
 
